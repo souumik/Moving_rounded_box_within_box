@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--link rel="stylesheet" href="style.css">-->
+    <title>Moving square</title>
+</head>
+<body>
+<h1><button onclick="move()">S T A R T</button></h1>
+<!--<h1><button onclick="stopMove()">S T O P</button></h1>-->
+
+<div id ="container"> 
+  <div id ="animate"><h3 style="text-align:center; color: rgb(100, 45, 19);">DVD</h3></div>
+</div>
+
+
+<script>
+function move() {
+  let id = null;
+  const elem = document.getElementById("animate");   
+  let pos = 0;
+  clearInterval(id);
+  
+  id = setInterval(frame,10); // number defines the moving speed in millisecond
+  function frame() {
+    if (pos == 350) { //350 is the remaining px
+      elem.style.background="white";
+      setInterval(frame2,10);
+         
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px";
+      elem.style.background="rgba(59, 148, 104, 0.938)"; 
+    }
+  }
+  function frame2()
+  {
+    if (pos == 0) { //350 is the remaining px
+      //clearInterval(id);
+      elem.style.background="white";
+      setInterval(frame,10)
+      
+          
+    } else {
+      pos--; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+      elem.style.background="white";
+    }
+  }
+  
+}
+</script>
+
+
+
+
+
+<style>
+#container {
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+    position: relative;
+    background: rgba(53, 10, 8, 0.897);
+  }
+  #animate {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    background-color: rgba(96, 124, 18, 0.938);
+  }
+
+</style>
+</body>
+</html>
